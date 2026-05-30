@@ -1,0 +1,135 @@
+Using Ranch Economic Model: Northern Highland Prairie
+Wyoming cow-calf, North 40 site
+Weather data from --> CASPER, WY
+
+These results were written at  3:16 pm on 05/16/94.
+
+
+       
+                    -------   HOPPER Disclaimer   -------
+       
+            HOPPER has been tested as much as possible with the available
+       data and experts, and has performed satisfactorily.  However, the
+       rangeland ecosystem is very complex and unpredictable.  In
+       addition, HOPPER does not have any control over the data entered
+       by each user.  Therefore, the results derived from HOPPER CANNOT
+       be guaranteed.  The following disclaimer applies:
+       
+       HOPPER and its associated files and documentation are distributed
+       without any expressed or implied warranty of any kind.  The author,
+       supplier or distributor shall not be liable for errors contained
+       herein or for incidental or consequential damages in connection
+       with furnishing, performance, use or misuse of these materials.
+
+
+The following is a list of parameter definitions and values
+
+  Weather at time of treatment                               hot and dry
+  Survey Date                                                   07/05/94
+  Treatment Date                                                07/15/94
+  Environmental Concerns (no chemical SPRAYS)                       None
+  Environmentally sensitive (no chemicals)                Isolated Areas
+  Managed Bees in the area                                            No
+  Protect beneficial insects                                          No
+  Average stage at survey                                           4.29
+  Average stage at treatment                                        4.93
+  Percent early season target species                              23.00
+  Closed canopy                                                       No
+  Egg hatch completed                                   greater than 90%
+  Grasshoppers density is greater than 22/yd2                         No
+  Weed biocontrol insectaries present                                Yes
+
+
+
+The following is a list of economic definitions and values
+
+                        Forage and Grasshopper Models                         
+
+                       Wyoming cow-calf, North 40 site                        
+      GRASS FEEDING HOPPERS (#/yd2)                          12
+      MIXED FORAGE FEEDING HOPPERS (#/yd2)                   20
+      PEAK EDIBLE FORAGE PRODUCTION                         550
+      FORAGE PROD. MULTIPLIER                              1.00
+
+      % Warm Season Grass                                    20
+      % Cool Season Grass                                    50
+      % Forbs                                                30
+
+      Normal Soil Moisture(% by Wt)                          23
+      inches of Rain to fill dry soil to field capacity       5
+      Soil Water Holding Capacity (% by Wt)                  25
+      Days for saturated soil to dry to 10% Water            65
+
+
+                               TREATMENT COSTS                                
+      Treatment                               Cost  Mortality (%)
+      Acephate                               $ 2.47        91
+      Carbaryl Bait                          $ 4.50        73
+      Carbaryl Spray                         $ 3.50        92
+      Malathion                              $ 2.25        90
+      Nosema Bait                            $ 4.75
+
+
+  LEASE DISTANT PASTURES:
+          AUMs     $/Aum    Dist(mi)   Date On  Date Off
+             0    $100.00       100    07/01/93  09/30/93
+
+  COST TO PURCHASE HAY:               $80.00
+
+  ON RANCH HAY PRODUCTION:
+                      Acres        Yield (tons/acre)
+        Alfalfa Hay       0             0.0
+          Grass Hay     300             1.5
+
+
+
+  HERD INFORMATION:
+      Number of Brood Cows                 480
+      Number of Ewes                         0
+
+                               Base Lease Data                                
+                AUMs    $/AUM    Prpr Use   Date On   Date Off
+  Forest Service
+   NONE
+
+  BLM
+   Lease #1      723   $ 1.92       0.6   05/01/93  12/15/93
+
+  State
+   Lease #1      138   $ 1.92       0.6   05/01/93  12/31/93
+
+  Private Leased Land
+   NONE
+
+  On-ranch grazing in the treatment block
+   (Operation costs included on previous sections and in the model)
+   Deeded     3551                  0.6   05/01/93  12/15/93
+
+
+
+NOTE: Insectaries are present and contain susceptible beneficial
+      insects. Use baits in and near the insectaries or provide
+      adequate buffer to protect the biological control insects
+      in the insectaries.
+
+NOTE: Isolated areas that are environmentally sensitive are
+      present. Be sure to plan adequate buffers around these
+      areas if you are using ANY CHEMICAL INSECTICIDES.
+
+
+
+
+
+ Survey date: 07/05/94 Stage: 4.3, Treatment date: 07/15/94 Stage: 4.9.
+ Yield Without Treatment:  374 #/acre. Acres to be treated: 16044.
+ Eggs per sq yd without treatment: 29.1
+
+                   Yield     Cost   Return       B/C Ratio        Eggs
+ Treatment        (lbs/a)    ($)     ($)     Current +0 Years    per yd2
+--------------------------------------------------------------------------
+
+  Acephate           458     39628    45562     1.15    1.15      5.7
+  Carbaryl Bait      442     72196    36689     0.51    0.51     10.5
+  Carbaryl Spray     441     56153    36091     0.64    0.64      9.1
+  Malathion          460     36098    46428     1.29    1.29      5.4
+  Nosema Bait        400     76207    14243     0.19    0.19     20.2

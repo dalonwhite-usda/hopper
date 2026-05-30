@@ -1,0 +1,311 @@
+rem Hopper.tch ----------------- ;
+worldelay 1 secs ;
+ESC;
+
+win 0 secs no
+`Hi! Welcome to the Hopper 4.0 Tutorial. This is a guided tour of Hopper's
+ main features. The tutorial lasts about 15 minutes on most computers.
+ Press a key only when a tutorial information window is displayed.`;
+
+win 0 secs no
+`We will start with the first step which is to go to Treatment. Then we will
+ press <Enter> to select Treatment and go to Consult`;
+
+Rem ----------goto treatment ------------;
+Left;
+Left;
+
+Rem ----------select treatment ------------;
+Enter;
+
+Rem ----------select Consult ------------;
+C;
+
+win 0 secs no
+`We want to create the weather data for Casper, WY. If you were
+ selecting here you would want to select the
+ town closest to your location.`;
+
+Rem ----------select Create weather file ------------;
+Enter;
+End;
+Up;
+Up;
+Up;
+Up;
+Up;
+Rem --- Select Casper, WY;
+Enter;
+
+win 0 secs no
+`Now we will begin the expert system for treatment selection. We could load
+ previously saved information from a file.  However, for this example
+ we will not load a file, but will enter each item, one at a time.`;
+wait 2 secs;
+N;
+worldelay 2 secs ;
+output `070594`;
+output `071594`;
+
+Rem Trt date warning is displayed;
+Pause;
+Enter;
+
+rem ---- early spp;
+win 0 secs no
+`There is additional help available.  We will briefly look at
+ the help information for this variable.`;
+F1;
+Wait 3 secs;
+Pause;
+ESC;
+output `23`;
+Enter;
+
+rem  ---- survey date notice;
+Wait 3 secs;
+Wait 3 secs;
+
+win 0 secs no
+`Here we could change the life stage estimate (also used in the
+ Economic Analysis) if it is not similar to field estimates.  For
+ now we will accept Hopper's estimate.`;
+Enter;
+
+rem ---- Environ Concerns;
+Enter;
+
+
+rem ---- Bees ;
+N; Enter;
+
+rem ---- Beneficials;
+N; Enter;
+
+rem ---- Environ Sensitive areas;
+down; Enter;
+
+rem ---- Density;
+down; Enter;
+
+rem ---- Insectaries;
+Enter;
+
+rem ---- Thick veg;
+Enter;
+
+rem ---- Hot and Dry;
+down; Enter;
+
+rem ---- greater than 90%;
+down; Enter;
+
+rem WhatIf Screen is displayed;
+wait 2 secs;
+
+win 0 secs no
+`When the expert system has selected valid treatments, you can modify any of
+ your answers by deleting them on the lower screen.  Then the <F5> key
+ can be used to start the expert system again and ask you for a new value.`;
+
+win 0 secs no
+`Any time the cursor is in the upper screen
+ you could press <Escape> to jump to the
+ lower screen to make changes, and restart.  If <Escape> is pressed while
+ the cursor is in the lower screen, Hopper will exit and return to
+ the main menu.`;
+
+rem ---- delete cool and wet;
+
+worldelay 1 secs ;
+
+win 0 secs no
+`Now we will delete Cool and Wet.`;
+Del;
+
+win 0 secs no
+`Now we will delete Closed Canopy and continue with <F5>.`;
+down; down; down; down; down; down;
+down; down; down;
+
+rem ---- del closed canopy;
+Del;
+
+
+F5;
+worldelay 2 secs;
+
+rem Survey date notice;
+Pause;
+Enter;
+rem Thick veg;
+Down;
+Enter;
+
+rem Hot and dry;
+Enter;
+
+rem --- all treatments are shown with WhatIf Screen;
+Pause;
+win 0 secs
+`The list of treatments and input data are acceptable so the Tutorial will
+ continue with an <F5>.`;
+F5;
+N;
+
+win 0 secs
+`Hopper will let you view an explanation of the treatment selection
+ process.`;
+
+rem Show Explain;
+down; Enter; Enter;
+wait 3 secs;
+wait 3 secs;
+wait 3 secs;
+rem pause;
+rem win 0 secs
+`We will exit from the explanation by pressing <Escape>.`;
+
+ESC;
+Rem ---- Finish Consult;
+
+win 0 secs
+`Now we will go to Economics to determine cost effectiveness of the
+ selected treatments.`;
+down; Enter;
+
+win 0 secs
+`Values from the last Economics run can be used or a different ranch
+ model can be loaded.  Here we will load a different ranch model.`;
+
+down; Enter;
+win 0 secs no
+`A list of available models are presented. There is a description of the models
+ in Appendix B of the User Guide. Also, online information is available by
+ pressing <F1> for help.  The Tutorial will briefly show you the online
+ information.`;
+
+F1;
+Pause;
+PgDn;
+Pause;
+PgDn;
+pause;
+ESC;
+
+win 0 secs no
+ `We will select an economics file that was created for the tutorial.`;
+
+rem Jump to the Tutorial ec3 file;
+~; Enter;
+
+Enter;
+rem delete the line of text;
+ctrly;
+output `40 site`;
+output `calf, North `;
+output `Wyoming cow-`;
+Enter;
+win 0 secs no
+`We will enter grasshopper density. This is the only information that
+ must be entered. All other information on the screen already
+ contains typical values. The Tutorial will enter <F5> to continue to the
+ next screen.`;
+
+output `12`;
+Enter;
+wait 1 secs;
+output `20`;
+Enter;
+wait 3 secs;
+F5;
+
+win 0 secs no
+`On this screen cost of each treatment should be entered. Cost is one of
+ the most important factors in the economic analysis. We will accept these
+ typical costs and continue with <F5>.`;
+wait 3 secs;
+F5;
+
+win 0 secs no
+`If the grasshopper populations are expected to remain the same or
+ increase there may be multiple years of benefit for treatment. In this
+ example we assume no multiple year benefits.`;
+rem Y this is not an autoAdvance field;
+rem Enter;
+rem 1;
+wait 3 secs;
+F5;
+
+win 0 secs no
+`We will accept the typical values on this screen and press <F5> to
+ continue.`;
+wait 3 secs;
+F5;
+
+win 0 secs no
+`We will accept the typical values on this screen and press <F5> to
+ continue.`;
+
+wait 3 secs;
+F5;
+
+win 0 secs no
+`We will accept the typical values on this screen and press <F5> to
+ continue.`;
+
+wait 3 secs;
+F5;
+rem Tell user they could save a file here and what info it would contain;
+rem win 0 secs no
+`The information on the last six screens can be saved and used later. In
+ addition, this information is automatically saved as in the LAST file and
+ can be used on the very next run.`;
+n;
+Y;
+rem Show plot of No Trt graph;
+N;
+rem wait 3 secs;
+rem pause;
+rem Enter;
+Enter;
+rem Show plot next graph;
+N;
+rem wait 3 secs;
+rem Pause;
+rem Enter;
+Enter;
+rem Show plot of next graph;
+N;
+rem wait 3 secs;
+rem Pause;
+rem Enter;
+Enter;
+rem Show plot of Next graph;
+N;
+rem wait 3 secs;
+rem Pause;
+rem Enter;
+Enter;
+rem Show plot of Next graph;
+N;
+rem wait 3 secs;
+rem Pause;
+rem Enter;
+Enter;
+rem Show plot of Next graph;
+N;
+rem wait 3 secs;
+rem Pause;
+rem Enter;
+Rem Save results, default = n;
+Enter;
+enter;
+win 0 secs no
+`This is the final result screen from the economic analysis. When you
+ are finished reading the results press a key to end the tutorial.`;
+Enter;
+win 0 secs no
+`The tutorial is finished.`;
+EndScript;
+rem ------------------------------------------ done;

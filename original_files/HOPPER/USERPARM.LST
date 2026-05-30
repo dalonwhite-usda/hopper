@@ -1,0 +1,14 @@
+OBJECTIVE/Management objective
+PROTECT_BENEFICIALS/Protect beneficial insects
+CLOSED_CANOPY/Dense vegetation, closed canopy
+WEATHER/Current weather conditions
+TREATMENT_DATE/Treatment date
+CENSUS_DATE/Grasshopper census date
+SENS_ENV/Toxic chemicals prohibited
+BEES/Managed bees in the area
+PROP_POP_ADULT/proportion adults in population
+DEV_STGE/Grasshopper life-stage
+HATCH_I/Percent of egg hatch completed
+AULOCURA_PERCENT/Percent early, target species
+POPULATIONINCREASING/Population is greater this year
+SensitiveSpecies/Prohibit chemical sprays

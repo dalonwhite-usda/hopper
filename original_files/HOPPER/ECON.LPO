@@ -1,0 +1,70 @@
+Next Treatment:  No Treatment
+
+
+
+
+WYCOW      SOLUTION IS OPTIMAL           DATE  05-16-1994     TIME     15:16:38
+
+MAXIMUM             ENTERS:   BMRCAK     BASIS X:   113       VARIABLES:   161
+PIVOTS:    114      LEAVES:   JULGRS     BASIS S:   10        SLACKS:      110
+LAST INV:  0        DELTA    271786.7    RETURN   27095.74    CONSTRAINTS: 123
+
+Next Treatment:  Acephate
+
+
+
+
+WYCOW      SOLUTION IS OPTIMAL           DATE  05-16-1994     TIME     15:16:43
+
+MAXIMUM             ENTERS:   BMRCAK     BASIS X:   113       VARIABLES:   161
+PIVOTS:    115      LEAVES:   JULGRS     BASIS S:   10        SLACKS:      110
+LAST INV:  0        DELTA    271786.7    RETURN   72657.82    CONSTRAINTS: 123
+
+Next Treatment:  Carbaryl Bait
+
+
+
+
+WYCOW      SOLUTION IS OPTIMAL           DATE  05-16-1994     TIME     15:16:49
+
+MAXIMUM             ENTERS:   BMRCAK     BASIS X:   113       VARIABLES:   161
+PIVOTS:    115      LEAVES:   JULGRS     BASIS S:   10        SLACKS:      110
+LAST INV:  0        DELTA    271786.7    RETURN   63784.97    CONSTRAINTS: 123
+
+Next Treatment:  Carbaryl Spray
+
+
+
+
+WYCOW      SOLUTION IS OPTIMAL           DATE  05-16-1994     TIME     15:16:54
+
+MAXIMUM             ENTERS:   BMRCAK     BASIS X:   113       VARIABLES:   161
+PIVOTS:    115      LEAVES:   JULGRS     BASIS S:   10        SLACKS:      110
+LAST INV:  0        DELTA    271786.7    RETURN   63186.61    CONSTRAINTS: 123
+
+Next Treatment:  Malathion
+
+
+
+
+WYCOW      SOLUTION IS OPTIMAL           DATE  05-16-1994     TIME     15:16:59
+
+MAXIMUM             ENTERS:   BMRCAK     BASIS X:   113       VARIABLES:   161
+PIVOTS:    115      LEAVES:   JULGRS     BASIS S:   10        SLACKS:      110
+LAST INV:  0        DELTA    271786.7    RETURN   73523.52    CONSTRAINTS: 123
+
+Next Treatment:  Nosema Bait
+
+
+
+
+WYCOW      SOLUTION IS OPTIMAL           DATE  05-16-1994     TIME     15:17:04
+
+MAXIMUM             ENTERS:   BMRCAK     BASIS X:   113       VARIABLES:   161
+PIVOTS:    114      LEAVES:   JULGRS     BASIS S:   10        SLACKS:      110
+LAST INV:  0        DELTA    271786.7    RETURN   41338.87    CONSTRAINTS: 123
+
+ 
+ 
+ 
+ 

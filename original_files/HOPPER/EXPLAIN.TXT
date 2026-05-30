@@ -1,0 +1,20 @@
+
+  Treatments in the following list are registered for rangeland.  Hopper
+  eliminated any that are not approriate for the situation you specified
+
+ Acephate         Malathion
+ Carabaryl Bait   Carbaryl Spray
+ Nosema Bait
+
+
+---  Explanation of reasoning used for treatment selection  --- 
+
+
+   Insectaries are present. No treatments were eliminated.
+   However, only baits (if recommended) should used in or near
+   any insectaries. If chemical sprays are used for a treatment,
+   then adequate buffers around the insectary must be provided.
+
+
+
+---  End of Explanation ---

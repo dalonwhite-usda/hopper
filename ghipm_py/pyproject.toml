@@ -1,0 +1,18 @@
+[project]
+name = "ghipm-py"
+version = "0.1.0"
+description = "Modern Python/Pyomo reimplementation of the 1994 rangeland/grasshopper economic model"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pyomo>=6.7.2",
+  "pydantic>=2.7.0",
+  "numpy>=1.26.0",
+  "pandas>=2.2.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 100

@@ -1,0 +1,239 @@
+spec_version: 0.1
+model_name: HOPPER reconstruction
+date: 2026-05-29
+status: draft
+purpose: >-
+  Machine-readable blueprint of the reconstructed HOPPER workflow.
+  Derived from readable legacy files and current Python implementation.
+
+provenance:
+  legacy_files:
+    - original_files/HOPPER/FORAGE.IN
+    - original_files/HOPPER/CURRENT.WTR
+    - original_files/HOPPER/YIELD$.DAT
+    - original_files/HOPPER/SITES.DAT
+    - original_files/HOPPER/LAST.EC3
+    - original_files/HOPPER/~TUTOR.EC3
+    - original_files/HOPPER/GENERIC.GN3
+    - original_files/HOPPER/RESULTS.RPT
+    - original_files/HOPPER/EXPLAIN.TXT
+    - original_files/HOPPER/ECON.LPO
+    - original_files/HOPPER/WYCOW.LP
+  python_files:
+    - ghipm/cli.py
+    - ghipm/data_io/forage_in.py
+    - ghipm/data_io/weather.py
+    - ghipm/data_io/yield_dat.py
+    - ghipm/bio/temp_response.py
+    - ghipm/bio/phenology.py
+    - ghipm/bio/forage_model.py
+    - ghipm/econ_lp/scenarios.py
+    - ghipm/econ_lp/model.py
+
+inputs:
+  required_files:
+    FORAGE.IN:
+      type: keyed_numeric_lines
+      keys:
+        - wdpsc
+        - wtmax
+        - wtopt
+        - wtmin
+        - cdpsc
+        - ctmax
+        - ctopt
+        - ctmin
+        - fdpsc
+        - ftmax
+        - ftopt
+        - ftmin
+      units:
+        dpsc: percent
+        temperature: C
+    CURRENT.WTR:
+      type: daily_weather_rows
+      expected_columns:
+        - day_of_year
+        - column_2_tmax_f
+        - column_3_tavg_f_or_tmin_f
+      parser_assumption: column_3_is_tavg_f
+      output: monthly_mean_temperature_c
+    YIELD$.DAT:
+      type: paired_lines
+      format: treatment_name_then_absolute_yield
+      output:
+        base_no_treatment_yield_lbs_per_acre: float
+        treatment_absolute_yield_lbs_per_acre: map
+        treatment_relative_yield_scalar: map
+  scenario_parameters:
+    treated_acres: 16044
+    brood_cows: 480
+    forage_requirement_lbs_per_cow_month: 780.0
+    hay_buy_cost_per_ton: 80.0
+    grass_hay_inventory_lbs: 900000.0
+    lease_allowed_months:
+      - MAY
+      - JUN
+      - JUL
+      - AUG
+      - SEP
+      - OCT
+      - NOV
+      - DEC
+    blm_total_aum: 723
+    state_total_aum: 138
+    lease_price_per_aum: 1.92
+    lbs_per_aum: 780.0
+
+treatments:
+  - name: No Treatment
+    cost_per_acre: 0.00
+    mortality_pct: 0.0
+    eggs_per_yd2: 0.0
+  - name: Acephate
+    cost_per_acre: 2.47
+    mortality_pct: 91.0
+    eggs_per_yd2: 5.7
+  - name: Carbaryl Bait
+    cost_per_acre: 4.50
+    mortality_pct: 73.0
+    eggs_per_yd2: 10.5
+  - name: Carbaryl Spray
+    cost_per_acre: 3.50
+    mortality_pct: 92.0
+    eggs_per_yd2: 9.1
+  - name: Malathion
+    cost_per_acre: 2.25
+    mortality_pct: 90.0
+    eggs_per_yd2: 5.4
+  - name: Nosema Bait
+    cost_per_acre: 4.75
+    mortality_pct: 50.0
+    eggs_per_yd2: 20.2
+
+pipeline:
+  - stage_id: S1
+    name: load_inputs
+    outputs:
+      - forage_params
+      - monthly_tmean_c
+      - yield_scalars
+  - stage_id: S2
+    name: monthly_forage_weighting
+    equation_notes:
+      temp_response: triangular
+      class_mix:
+        warm_season_grass: 0.50
+        cool_season_grass: 0.35
+        forbs: 0.15
+      active_fraction:
+        source: dpsc_percent
+        formula: clamp(dpsc_percent / 100, 0, 1)
+    outputs:
+      - monthly_weight_by_month
+      - baseline_monthly_forage_lbs_per_acre
+  - stage_id: S3
+    name: treatment_rescaling
+    logic: >-
+      For each treatment, rescale monthly forage profile so annual sum equals
+      treatment absolute yield from YIELD$.DAT.
+    outputs:
+      - treatment_monthly_forage_lbs_total
+  - stage_id: S4
+    name: monthly_lp_optimization
+    solver: pyomo_with_external_lp_solver
+    objective:
+      sense: maximize
+      expression: >-
+        negative(feed_purchase_cost + lease_cost + treatment_cost)
+    decisions:
+      - hay_use_lbs_by_month
+      - hay_buy_tons_by_month
+      - blm_aum_use_by_month
+      - state_aum_use_by_month
+    constraints:
+      - hay_inventory_limit
+      - blm_annual_aum_cap_with_allowed_month_filter
+      - state_annual_aum_cap_with_allowed_month_filter
+      - monthly_feed_balance
+  - stage_id: S5
+    name: treatment_comparison
+    logic: >-
+      Solve No Treatment first, then each treatment. Compute return_delta as
+      objective(treatment) - objective(no_treatment).
+    outputs:
+      - per_treatment_return_delta
+      - benefit_cost_ratio
+
+lp_model:
+  sets:
+    months: [JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC]
+  parameters:
+    cows: nonnegative_real
+    req_lb_per_cow_month: positive_real
+    treated_acres: positive_real
+    forage_lbs_per_acre_by_month: map_month_to_real
+    hay_buy_cost_per_ton: nonnegative_real
+    hay_inventory_lbs: nonnegative_real
+    blm_total_aum: nonnegative_real
+    state_total_aum: nonnegative_real
+    lease_price_per_aum: nonnegative_real
+    lbs_per_aum: positive_real
+    treatment_cost_per_acre: nonnegative_real
+  variables:
+    hay_use_lbs_by_month: nonnegative_real
+    hay_buy_tons_by_month: nonnegative_real
+    blm_use_aum_by_month: nonnegative_real
+    state_use_aum_by_month: nonnegative_real
+  key_constraint_forms:
+    - hay_inventory: sum(hay_use[m]) <= hay_inventory_lbs
+    - blm_cap: sum(blm_use[m] for m in allowed_months) <= blm_total_aum
+    - state_cap: sum(state_use[m] for m in allowed_months) <= state_total_aum
+    - monthly_balance: >-
+        cows * req_lb_per_cow_month <= natural_forage_lbs[m] + hay_use[m] +
+        lbs_per_aum * (blm_use[m] + state_use[m]) + 2000 * hay_buy_tons[m]
+
+outputs:
+  table_columns:
+    - treatment_name
+    - yield_lbs_per_acre
+    - treatment_cost_total_dollars
+    - return_delta_dollars
+    - benefit_cost_ratio
+    - eggs_per_yd2
+  narrative_outputs:
+    - treatment_eligibility_explanation
+    - environmental_caution_notes
+    - disclaimer
+
+rule_system:
+  evidence_files:
+    - original_files/HOPPER/EXPLAIN.TXT
+    - original_files/HOPPER/USERPARM.LST
+    - original_files/HOPPER/RESULTS.RPT
+  status: partial
+  known_rule_topics:
+    - insectaries_present
+    - managed_bees
+    - no_spray_sensitive_areas
+    - no_chemical_sensitive_areas
+    - canopy_and_weather_context
+    - life_stage_hatch_context
+
+validation_targets:
+  reference_case:
+    source: original_files/HOPPER/RESULTS.RPT
+    scenario: Wyoming cow-calf, North 40
+    no_treatment_yield_lbs_per_acre: 374
+    treatment_yields_lbs_per_acre:
+      Acephate: 458
+      Carbaryl Bait: 442
+      Carbaryl Spray: 441
+      Malathion: 460
+      Nosema Bait: 400
+
+known_gaps:
+  - Legacy executable internals are not fully readable from binary files.
+  - Full LP enterprise detail in historical decks is simplified in current Python LP.
+  - Rule-based explanation engine is only partially represented.
+  - sites_dat parser exists but is not wired into the active CLI run path.

@@ -1,0 +1,20 @@
+
+             -------   HOPPER Disclaimer   -------
+
+     HOPPER has been tested as much as possible with the available
+data and experts, and has performed satisfactorily.  However, the
+rangeland ecosystem is very complex and unpredictable.  In
+addition, HOPPER does not have any control over the data entered
+by each user.  Therefore, the results derived from HOPPER CANNOT
+be guaranteed.  The following disclaimer applies:
+
+HOPPER and its associated files and documentation are distributed
+without any expressed or implied warranty of any kind.  The author,
+supplier or distributor shall not be liable for errors contained
+herein or for incidental or consequential damages in connection
+with furnishing, performance, use or misuse of these materials.
+
+---------------------- Notice ------------------------------------
+Hopper still lists Acephate as an option. However, Acephate is no
+longer registered for use on rangeland. Please ignore any
+recommendations Hopper may make for Acephate.

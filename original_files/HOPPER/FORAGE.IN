@@ -1,0 +1,13 @@
+90.0   wdpsc     number of days from emergence to sc for warm season grass (days)
+37.0   wtmax     max temperature for growth (deg C)
+28.0   wtopt     opt temperature for growth (deg C)
+10.0    wtmin     min temperature for growth (deg C)
+60.0   cdpsc     Cool season grass
+37.0   ctmax      .
+28.0   ctopt      .
+7.0    ctmin      .
+60.0   fdpsc     Forbs
+37.0   ftmax      .
+28.0   ftopt      .
+7.0    ftmin      .
+

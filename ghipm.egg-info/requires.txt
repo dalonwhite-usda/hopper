@@ -1,0 +1,4 @@
+pyomo>=6.7.2
+pydantic>=2.7.0
+numpy>=1.26.0
+pandas>=2.2.0
