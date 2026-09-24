@@ -1,0 +1,2 @@
+I was trying to rebuild the old Hopper program through aggressive use of AI. It was working on a model. I was providing GPT with the goal of the program, the grasshopper project problems, as well as data files and saved screen output example pictures and it was trying to presume the process.  It seemed to be getting somewhere though I'm not sure it is possible without access to the executable files, which USDA permissions won't let us get.
+Any future efforts should start there
